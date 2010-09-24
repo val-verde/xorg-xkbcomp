@@ -33,20 +33,16 @@ XORG_DEFAULT_OPTIONS
 
 AM_CONFIG_HEADER(config.h)
 
-AC_PROG_CC
 AC_PROG_YACC
 AC_PATH_PROG([YACC_INST], $YACC)
 AC_CHECK_FILE([$srcdir/xkbparse.c], [],
               [test -z "$YACC_INST" && AC_MSG_ERROR([yacc not found - unable to compile xkbparse.y])])
-AC_PROG_INSTALL
 
 
 AC_CHECK_FUNCS([strdup strcasecmp])
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XKBCOMP, x11 xkbfile)
-AC_SUBST(XKBCOMP_CFLAGS)
-AC_SUBST(XKBCOMP_LIBS)
 
 AC_ARG_WITH([xkb_config_root],
     [AC_HELP_STRING([--with-xkb-config-root=<paths>],
