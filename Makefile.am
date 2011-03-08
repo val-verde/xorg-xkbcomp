@@ -59,10 +59,7 @@ xkbcomp_SOURCES = \
         xkbpath.h \
         xkbscan.c
 
-
-BUILT_SOURCES = xkbparse.c
 MAINTAINERCLEANFILES = ChangeLog INSTALL
-MAINTAINERCLEANFILES += $(BUILT_SOURCES)
 
 .PHONY: ChangeLog INSTALL
 
