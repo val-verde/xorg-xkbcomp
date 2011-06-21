@@ -656,7 +656,7 @@ HandleInterpDef(InterpDef * def, XkbDescPtr xkb, unsigned merge,
     {
         ERROR("Couldn't determine matching modifiers\n");
         ACTION("Symbol interpretation ignored\n");
-        return False;
+        return True;
     }
     if (def->merge != MergeDefault)
         merge = def->merge;
