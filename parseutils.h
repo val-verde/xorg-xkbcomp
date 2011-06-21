@@ -88,7 +88,7 @@ extern VarDef *BoolVarCreate(Atom /* nameToken */ ,
                              unsigned   /* set */
     );
 
-extern InterpDef *InterpCreate(KeySym /* sym */ ,
+extern InterpDef *InterpCreate(const char * /* sym_str */ ,
                                ExprDef *        /* match */
     );
 

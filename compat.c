@@ -658,9 +658,9 @@ HandleInterpDef(InterpDef * def, XkbDescPtr xkb, unsigned merge,
         ACTION("Symbol interpretation ignored\n");
         return True;
     }
-    if (def->sym == NoSymbol)
+    if (def->ignore)
     {
-        ERROR("Couldn't determine keysym\n");
+        ERROR("Couldn't lookup keysym\n");
         ACTION("Symbol interpretation ignored\n");
         return True;
     }
