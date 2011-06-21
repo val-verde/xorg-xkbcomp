@@ -164,7 +164,7 @@ extern ExprDef *AppendKeysymList(ExprDef * /* list */ ,
                                  char * /* sym */
     );
 
-extern int LookupKeysym(char * /* str */ ,
+extern int LookupKeysym(const char * /* str */ ,
                         KeySym *        /* sym_rtrn */
     );
 

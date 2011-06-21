@@ -622,7 +622,7 @@ AppendKeysymList(ExprDef * list, char *sym)
 }
 
 int
-LookupKeysym(char *str, KeySym * sym_rtrn)
+LookupKeysym(const char *str, KeySym * sym_rtrn)
 {
     KeySym sym;
     char *tmp;
