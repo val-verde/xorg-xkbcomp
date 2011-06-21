@@ -658,6 +658,13 @@ HandleInterpDef(InterpDef * def, XkbDescPtr xkb, unsigned merge,
         ACTION("Symbol interpretation ignored\n");
         return True;
     }
+    if (def->sym == NoSymbol)
+    {
+        ERROR("Couldn't determine keysym\n");
+        ACTION("Symbol interpretation ignored\n");
+        return True;
+    }
+
     if (def->merge != MergeDefault)
         merge = def->merge;
 
