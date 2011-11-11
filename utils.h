@@ -159,7 +159,7 @@ uInformation(const char * /* s */ , ...
 #define FATAL			uFatalError
 
      extern void uFatalError(const char * /* s  */ , ...
-    ) _X_ATTRIBUTE_PRINTF(1, 2);
+    ) _X_ATTRIBUTE_PRINTF(1, 2) _X_NORETURN;
 
 /* WSGO stands for "Weird Stuff Going On" */
 #define WSGO6			uInternalError
