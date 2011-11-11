@@ -3611,11 +3611,11 @@ CopySectionDef(XkbGeometryPtr geom, SectionInfo * si, GeometryInfo * info)
                 key->shape_ndx = 0;
             else
             {
-                ShapeInfo *si;
-                si = FindShape(info, ki->shape, "key", keyText(ki));
-                if (!si)
+                ShapeInfo *sinfo;
+                sinfo = FindShape(info, ki->shape, "key", keyText(ki));
+                if (!sinfo)
                     return False;
-                key->shape_ndx = si->index;
+                key->shape_ndx = sinfo->index;
             }
             if (ki->color != None)
                 color =
