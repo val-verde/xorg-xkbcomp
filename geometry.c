@@ -366,7 +366,7 @@ InitRowInfo(RowInfo * row, SectionInfo * section, GeometryInfo * info)
     }
     else
     {
-        bzero(row, sizeof(RowInfo *));
+        bzero(row, sizeof(*row));
         row->defs.defined = _GR_Default;
         row->defs.fileID = info->fileID;
         row->defs.merge = info->merge;
