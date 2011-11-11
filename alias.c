@@ -278,7 +278,7 @@ ApplyAliases(XkbDescPtr xkb, Bool toGeom, AliasInfo ** info_in)
     if ((a - old) != (nOld + nNew))
     {
         WSGO2("Expected %d aliases total but created %d\n", nOld + nNew,
-              a - old);
+              (int)(a - old));
     }
 #endif
     if (toGeom)
