@@ -258,9 +258,9 @@ ddText(Display * dpy, DoodadInfo * di)
     }
     if (di->section)
     {
-        sprintf(buf, "%s in section %s",
-                XkbAtomText(dpy, di->name, XkbMessage), scText(dpy,
-                                                               di->section));
+        snprintf(buf, sizeof(buf), "%s in section %s",
+                 XkbAtomText(dpy, di->name, XkbMessage),
+                 scText(dpy, di->section));
         return buf;
     }
     return XkbAtomText(dpy, di->name, XkbMessage);
@@ -3297,8 +3297,8 @@ FontFromParts(Atom fontTok,
     rtrn = uCalloc(totalSize, 1);
     if (rtrn)
     {
-        sprintf(rtrn, FONT_TEMPLATE, font, weight, slant, setWidth, variant,
-                size, encoding);
+        snprintf(rtrn, totalSize, FONT_TEMPLATE, font, weight, slant,
+                 setWidth, variant, size, encoding);
     }
     return rtrn;
 }

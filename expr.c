@@ -767,7 +767,7 @@ ExprResolveString(ExprDef * expr,
             new = (char *) uAlloc(len);
             if (new)
             {
-                sprintf(new, "%s%s", leftRtrn.str, rightRtrn.str);
+                snprintf(new, len, "%s%s", leftRtrn.str, rightRtrn.str);
                 val_rtrn->str = new;
                 return True;
             }
