@@ -881,7 +881,6 @@ main(int argc, char *argv[])
     Status status;
 
     scan_set_file(stdin);
-    uSetEntryFile(NullString);
     uSetDebugFile(NullString);
     uSetErrorFile(NullString);
 
