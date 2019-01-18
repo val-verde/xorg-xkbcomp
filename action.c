@@ -627,6 +627,7 @@ HandleMovePtr(XkbDescPtr xkb,
             act->flags &= ~XkbSA_NoAcceleration;
         else
             act->flags |= XkbSA_NoAcceleration;
+        return True;
     }
     return ReportIllegal(action->type, field);
 }
