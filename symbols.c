@@ -968,7 +968,7 @@ AddSymbolsToKey(KeyInfo * key,
     key->symsDefined |= (1 << ndx);
     for (i = 0; i < nSyms; i++) {
         if (!LookupKeysym(value->value.list.syms[i], &key->syms[ndx][i])) {
-            WSGO1("Could not resolve keysym %s\n", value->value.list.syms[i]);
+            WARN2("Could not resolve keysym %s\n", value->value.list.syms[i]);
             key->syms[ndx][i] = NoSymbol;
         }
     }
