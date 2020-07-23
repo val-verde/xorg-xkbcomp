@@ -305,7 +305,7 @@ parseArgs(int argc, char *argv[])
             {
                 if (warningLevel > 0)
                 {
-                    WARN("Multiple pre-error messsages specified\n");
+                    WARN("Multiple pre-error messages specified\n");
                     ACTION2("Compiling %s, ignoring %s\n",
                             preErrorMsg, argv[i]);
                 }
