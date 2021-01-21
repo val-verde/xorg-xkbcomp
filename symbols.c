@@ -2281,8 +2281,7 @@ CompileSymbols(XkbFile * file, XkbFileInfo * result, unsigned merge)
                     char buf[5];
                     memcpy(buf, xkb->names->keys[i].name, 4);
                     buf[4] = '\0';
-                    WARN
-                        ("No symbols defined for <%s> (keycode %d)\n",
+                    INFO("No symbols defined for <%s> (keycode %d)\n",
                          buf, i);
                 }
             }
