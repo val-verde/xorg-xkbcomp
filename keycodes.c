@@ -334,7 +334,7 @@ AddKeyName(KeyNamesInfo * info,
     {
         if (!high_keycode_warned && warningLevel > 1)
         {
-            WARN("Unsupported high keycode %d for name <%s> ignored\n",
+            INFO("Unsupported high keycode %d for name <%s> ignored\n",
                   kc, name);
             ACTION("X11 cannot support keycodes above 255.\n");
             ACTION("This warning only shows for the first high keycode.\n");
@@ -598,7 +598,7 @@ HandleKeycodeDef(KeycodeDef * stmt, unsigned merge, KeyNamesInfo * info)
     {
         if (!high_keycode_warned && warningLevel > 1)
         {
-            WARN("Unsupported high keycode %d for name <%s> ignored\n",
+            INFO("Unsupported high keycode %d for name <%s> ignored\n",
                   code, stmt->name);
             ACTION("X11 cannot support keycodes above 255.\n");
             ACTION("This warning only shows for the first high keycode.\n");
