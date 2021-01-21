@@ -212,7 +212,7 @@ XkbAddDirectoryToPath(const char *dir)
     len = strlen(dir);
     if (len + 2 >= PATH_MAX)
     {                           /* allow for '/' and at least one character */
-        ERROR2("Path entry (%s) too long (maximum length is %d)\n",
+        ERROR("Path entry (%s) too long (maximum length is %d)\n",
                dir, PATH_MAX - 3);
         return False;
     }
@@ -230,7 +230,7 @@ XkbAddDirectoryToPath(const char *dir)
         (char *) calloc(strlen(dir) + 1, sizeof(char));
     if (includePath[nPathEntries] == NULL)
     {
-        WSGO1("Allocation failed (includePath[%d])\n", nPathEntries);
+        WSGO("Allocation failed (includePath[%d])\n", nPathEntries);
         return False;
     }
     strcpy(includePath[nPathEntries++], dir);
@@ -317,7 +317,7 @@ XkbAddFileToCache(char *name, unsigned type, char *path, void *data)
         if ((type == entry->type) && (uStringEqual(name, entry->name)))
         {
             void *old = entry->data;
-            WSGO2("Replacing file cache entry (%s/%d)\n", name, type);
+            WSGO("Replacing file cache entry (%s/%d)\n", name, type);
             entry->path = path;
             entry->data = data;
             return old;
@@ -392,7 +392,7 @@ XkbFindFileInPath(char *name, unsigned type, char **pathRtrn)
 
         if ((nameLen + typeLen + pathLen + 2) >= PATH_MAX)
         {
-            ERROR3("File name (%s/%s/%s) too long\n", includePath[i],
+            ERROR("File name (%s/%s/%s) too long\n", includePath[i],
                    typeDir, name);
             ACTION("Ignored\n");
             continue;
