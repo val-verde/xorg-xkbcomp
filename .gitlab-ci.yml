@@ -1,0 +1,43 @@
+# vim: set expandtab shiftwidth=2 tabstop=8 textwidth=0:
+
+include:
+  # Arch container builder template
+  - project: 'freedesktop/ci-templates'
+    ref: 6f86b8bcb0cd5168c32779c4fea9a893c4a0c046
+    file:
+      - '/templates/arch.yml'
+
+# global variables to be used by most/all jobs.
+variables:
+  FDO_UPSTREAM_REPO: 'xorg/app/xkbcomp'
+  # Changing the tag will rebuild the container images. The value is just a
+  # string, but we use the date for human benefits.
+  FDO_DISTRIBUTION_TAG: '2021-01-20.0'
+
+stages:
+  - prep
+  - build
+
+container-prep:
+  extends:
+    - .fdo.container-build@arch
+  stage: prep
+  variables:
+    GIT_STRATEGY: none
+    # minimal set of packages required to build and install
+    BASE_PACKAGES: 'pkgconf autoconf automake make gcc bison libxkbfile libx11 xorg-util-macros'
+    # extra packages we need for various tests
+    EXTRA_PACKAGES: ''
+    FDO_DISTRIBUTION_PACKAGES: $BASE_PACKAGES $EXTRA_PACKAGES
+
+autotools:
+  extends:
+    - .fdo.distribution-image@arch
+  stage: build
+  script:
+    - mkdir -p ../_inst
+    - autoreconf -vif
+    - ./configure --prefix="$PWD/../_inst" $CONFIGURE_OPTIONS
+    - make
+    - make check
+    - make install
