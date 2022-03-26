@@ -76,6 +76,18 @@ SOFTWARE.
 #include <sys/stat.h>
 #include <X11/keysym.h>
 
+#ifdef WIN32
+# define WIN32_LEAN_AND_MEAN
+# include <X11/Xwindows.h>
+# define FileName(file) file.cFileName
+# undef TEXT
+# undef ALTERNATE
+# undef ERROR
+#else
+# include <dirent.h>
+# define FileName(file) file->d_name
+#endif
+
 #if defined(sgi)
 #include <malloc.h>
 #endif
@@ -105,17 +117,6 @@ SOFTWARE.
 #define PATH_MAX 1024
 #endif
 #endif
-#endif
-
-#ifdef WIN32
-# define WIN32_LEAN_AND_MEAN
-# include <X11/Xwindows.h>
-# define FileName(file) file.cFileName
-# undef TEXT
-# undef ALTERNATE
-#else
-# include <dirent.h>
-# define FileName(file) file->d_name
 #endif
 
 #include "xkbpath.h"
